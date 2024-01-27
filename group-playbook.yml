@@ -1,0 +1,6 @@
+- name:  first play
+  group:
+    name:  developers
+- name:  security
+  group:
+    name:  security

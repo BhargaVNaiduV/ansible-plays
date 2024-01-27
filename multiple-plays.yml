@@ -1,0 +1,18 @@
+- name:  first play
+  hosts:  all
+  become:  true
+#  become_user:  bhargav
+  tasks:
+    - name: create a new file
+      file:
+        path:  /tmp/foo2.conf
+        mode:  0664
+        owner:  bhargav
+        state:  touch
+    - name:  create groups
+      import_tasks:  group-playbook.yml
+    - name:  install git
+      apt:
+        name: git
+        state:  present
+      tags:  git 
