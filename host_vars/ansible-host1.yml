@@ -1,0 +1,7 @@
+- name:  Set motd on all nodes
+  hosts: all
+  tasks:
+    - name: set motd= value of message varaiable
+      copy:
+        content:  "{{ message }}"
+        dest: /home/bhargav/motd
