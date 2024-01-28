@@ -1,2 +1,5 @@
 ansible-host1
+[proxy]
 ansible-host2
+[web-servers]
+ansible-host1
