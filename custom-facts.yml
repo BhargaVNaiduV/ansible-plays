@@ -1,0 +1,15 @@
+- name: Adding custom facts to ansible-host1
+  hosts: all
+  become:  true
+  tasks:
+    - name: Craete the customfacts.d directorty
+      file:
+        path:  /etc/ansible/facts.d
+        owner:  bhargav
+        mode:  775
+        state:  directory
+    - name: Copy file to the facts.d directory
+      copy:
+        src:  custom_fact.fact
+        dest:  /etc/ansible/facts.d
+
