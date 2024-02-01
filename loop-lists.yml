@@ -1,0 +1,21 @@
+- name:  Looping in plays
+  hosts:  all
+  vars: 
+    prime:  [2,3,5,7,11]
+    dbusers:
+      - username:  brad
+        pass:  pass1
+      - username: david
+        pass:  pass2
+  become:  true
+#  become_user:  bhargav
+  tasks:
+    - name: show numbers adding numbers
+      debug:
+        msg:  "{{ item }}"
+      loop:  "{{ prime }}"
+    - name:  Add  multiple users
+      user:
+        name:  "{{ item.username }}"
+        password:  "{{ item.pass | password_hash('sha512') }}"
+      loop:  "{{ dbusers}}"
